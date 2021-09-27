@@ -8,7 +8,9 @@
     </span>
   </div>
   <ul class="list-group">
-    <li class="list-group-item" v-for="(todo, index) in todos">
+      
+    <li class="list-group-item" v-for="(todo, index) in todos" v-bind:key="index">
+    <input class="form-check-input" type="checkbox">
     {{todo.name}}
       <div class="btn-group pull-right" 
         style="font-size: 12px; line-height: 1;">
@@ -39,7 +41,7 @@ export default {
 	},
 	methods:{
 		deleteTodo(i){
-			this.todos.splice(0,1);
+			this.todos.splice(i,1);
 		},
 		createTodo(name){
 			if(name != null){
